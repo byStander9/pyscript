@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <py-config type="json">
+        {
+          "paths": ["./hello.py"]
+        }
+    </py-config>
+</head>
+
+<body>
+    <form method="post">
+        <h3>image_target</h3>
+        <input type="file" id="image_target" name="image_target" />
+        <h3>image_source</h3>
+        <input type="file" id="image_source" name="image_source" />
+        <input type="submit" value="확인" onclick="test2(); return false;">
+    </form>
