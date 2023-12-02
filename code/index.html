@@ -6,11 +6,7 @@
     <title>Insert title here</title>
     <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
     <script defer src="https://pyscript.net/latest/pyscript.js"></script>
-    <py-config>
-        [[fetch]]
-        from = './'
-        files = ['hello.py']
-    </py-config>
+    
 </head>
 
 <body>
@@ -19,12 +15,23 @@
         <input type="file" id="image_target" name="image_target" />
         <h3>image_source</h3>
         <input type="file" id="image_source" name="image_source" />
-        <input type="submit" value="확인" onclick="test2(); return false;">
     </form>
+    <button class="button" type="button" id="button">Click me</button>
 
     <py-script>
+        from js import document
+        from pyodide.ffi import create_proxy
         import hello
-        hello.hello()
+
+        def pr(event):
+            print('hello')
+        
+        def proxySet():
+            click_proxy = create_proxy(pr)
+            e = document.getElementById("button")
+            e.addEventListener("click", click_proxy)
+        
+        proxySet()
     </py-script>
 </body>
 </html>
